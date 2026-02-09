@@ -1,103 +1,43 @@
-'use client';
+"use client"
 
-import { Button } from "./ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
+import Layout from '@/layout/layout'
 
-export default function Home() {
+export default function Home(): JSX.Element {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white">
-      {/* Banner Section */}
-      <section className="bg-cover bg-center h-96" style={{ backgroundImage: "url('/placeholder-banner.jpg')" }}>
-        <div className="container mx-auto h-full flex flex-col justify-center items-start px-4 md:px-0">
-          <h1 className="text-4xl md:text-5xl font-bold text-white">Negocio Destacado: San Juan Construcciones</h1>
-          <p className="text-lg md:text-xl text-white mt-4">Construyendo tus sueños con la mejor calidad.</p>
-          <Button className="mt-8">Ver más</Button>
-        </div>
-      </section>
+    <div className="p-6 flex flex-col items-center text-center">
+      <img
+        src="/logosanjuan.png"
+        alt="San Juan"
+        className="w-full md:w-4/5 max-w-3xl mx-auto"
+        style={{ objectFit: 'contain' }}
+      />
 
-      {/* Populares Section */}
-      <section className="py-12">
-        <div className="container mx-auto px-4 md:px-0">
-          <h2 className="text-3xl font-bold text-center mb-8">Populares</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {/* CardServicios */}
-            <Card className="bg-gray-800 border-gray-700">
-              <CardHeader>
-                <CardTitle>Servicios</CardTitle>
-                <CardDescription>Encuentra los mejores servicios</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p>Plomería, electricidad, y más.</p>
-              </CardContent>
-              <CardFooter>
-                <Button variant="outline" className="w-full">Ver más</Button>
-              </CardFooter>
-            </Card>
+      <h1 className="mt-6 text-3xl md:text-4xl font-extrabold">Directorio Digital San Juan</h1>
 
-            {/* CardComidaRapida */}
-            <Card className="bg-gray-800 border-gray-700">
-              <CardHeader>
-                <CardTitle>Comida Rápida</CardTitle>
-                <CardDescription>Para un antojo rápido</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p>Pizzas, hamburguesas y más.</p>
-              </CardContent>
-              <CardFooter>
-                <Button variant="outline" className="w-full">Ver más</Button>
-              </CardFooter>
-            </Card>
-            <Card className="bg-gray-800 border-gray-700">
-              <CardHeader>
-                <CardTitle>Entretenimiento</CardTitle>
-                <CardDescription>Para un antojo rápido</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p>Pizzas, hamburguesas y más.</p>
-              </CardContent>
-              <CardFooter>
-                <Button variant="outline" className="w-full">Ver más</Button>
-              </CardFooter>
-            </Card>
-            <Card className="bg-gray-800 border-gray-700">
-              <CardHeader>
-                <CardTitle>Salud</CardTitle>
-                <CardDescription>Para un antojo rápido</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p>Pizzas, hamburguesas y más.</p>
-              </CardContent>
-              <CardFooter>
-                <Button variant="outline" className="w-full">Ver más</Button>
-              </CardFooter>
-            </Card>
-            <Card className="bg-gray-800 border-gray-700">
-              <CardHeader>
-                <CardTitle>Tecnología</CardTitle>
-                <CardDescription>Para un antojo rápido</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p>Pizzas, hamburguesas y más.</p>
-              </CardContent>
-              <CardFooter>
-                <Button variant="outline" className="w-full">Ver más</Button>
-              </CardFooter>
-            </Card>
-            <Card className="bg-gray-800 border-gray-700">
-              <CardHeader>
-                <CardTitle>Hogar</CardTitle>
-                <CardDescription>Para un antojo rápido</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p>Pizzas, hamburguesas y más.</p>
-              </CardContent>
-              <CardFooter>
-                <Button variant="outline" className="w-full">Ver más</Button>
-              </CardFooter>
-            </Card>
-          </div>
-        </div>
-      </section>
+      <p className="mt-3 text-lg text-gray-700 max-w-2xl">
+        San Juan en tu bolsillo — descubre, conecta y haz crecer tu negocio local.
+      </p>
+
+      <div className="mt-6 bg-gradient-to-r from-white/40 to-white/20 border p-4 rounded-lg max-w-3xl text-left">
+        <h2 className="font-semibold text-lg">Tu mini-landingpage, gratis por siempre</h2>
+        <p className="text-sm text-gray-700 mt-1">
+          Solo pagas una vez. Respuestas más rápidas a tus clientes, catálogo digital y formulario de contacto.
+        </p>
+
+        <ul className="mt-3 list-disc list-inside text-sm text-gray-700">
+          <li>Hosting y mantenimiento gratis los primeros 6 meses.</li>
+          <li>Por lanzamiento: los primeros 50 negocios pagan solo $800.</li>
+          <li>Promoción, visibilidad y contacto directo con clientes.</li>
+        </ul>
+      </div>
     </div>
-  );
+  )
 }
+
+export function HomeWithLayout(): JSX.Element {
+  return (
+      <Home />
+  
+  )
+}
+
