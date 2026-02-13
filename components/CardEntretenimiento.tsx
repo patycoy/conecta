@@ -1,20 +1,20 @@
 import React from 'react';
 import { Negocio } from '@/data/types';
-import FastfoodIcon from '@mui/icons-material/Fastfood';
+import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import Link from 'next/link';
 
-interface CardComidaRapidaProps {
+interface CardEntretenimientoProps {
   negocio: Negocio;
 }
 
-const CardComidaRapida: React.FC<CardComidaRapidaProps> = ({ negocio }) => {
+const CardEntretenimiento: React.FC<CardEntretenimientoProps> = ({ negocio }) => {
   return (
     <div className="border rounded-lg p-4 flex flex-col items-center justify-between shadow-lg transition-transform transform hover:-translate-y-1 bg-white">
       <div className="text-indigo-600 my-4">
-        <FastfoodIcon sx={{ fontSize: 60 }} />
+        <SportsEsportsIcon sx={{ fontSize: 60 }} />
       </div>
       <h3 className="text-xl font-bold text-center mb-4 text-gray-800">{negocio.nombre}</h3>
-      <Link href={`/comidarapida/${negocio.slug}`} passHref>
+      <Link href={`/entretenimiento/${negocio.slug}`} passHref>
         <button className="bg-indigo-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-indigo-700 transition-colors duration-300">
           Ver más
         </button>
@@ -23,4 +23,4 @@ const CardComidaRapida: React.FC<CardComidaRapidaProps> = ({ negocio }) => {
   );
 };
 
-export default CardComidaRapida;
+export default CardEntretenimiento;
