@@ -1,4 +1,46 @@
-import { Negocio } from './types';
+
+export interface Ubicacion {
+  ciudad: string;
+  direccion: string;
+  mapa?: string;
+}
+
+export interface Contacto {
+  telefono?: string;
+  whatsapp?: string;
+  sitio?: string;
+  correo?: string;
+}
+
+export interface RedesSociales {
+  facebook?: string;
+  instagram?: string;
+  messenger?: string;
+}
+
+export interface Horario {
+  abre: string;
+  cierra: string;
+}
+
+export interface Negocio {
+  id: string;
+  nombre: string;
+  slug: string;
+  categoria: string;
+  descripcion: string;
+  imagen: string;
+  calificacion: number;
+  resenas: number;
+  rango_precio: string;
+  etiquetas: string[];
+  ubicacion: Ubicacion;
+  contacto: Contacto;
+  horario: Horario;
+  destacado?: boolean;
+  redessociales?: RedesSociales;
+  vip?: boolean;
+}
 
 export const negocios: Negocio[] = [
   {
@@ -28,7 +70,7 @@ export const negocios: Negocio[] = [
     id: "2",
     nombre: "Taco Express",
     slug: "taco-express",
-    categoria: "comida-rapida",
+    categoria: "restaurantes",
     descripcion: "Tacos al pastor y carnitas con servicio rápido.",
     imagen: "/img/tacos.jpg",
     calificacion: 4.7,
@@ -46,7 +88,7 @@ export const negocios: Negocio[] = [
     id: "3",
     nombre: "Pizza Flash",
     slug: "pizza-flash",
-    categoria: "comida-rapida",
+    categoria: "entrenimiento",
     descripcion: "Pizzas artesanales en menos de 10 minutos.",
     imagen: "/img/pizza.jpg",
     calificacion: 4.3,
@@ -64,7 +106,7 @@ export const negocios: Negocio[] = [
     id: "4",
     nombre: "El Sabor Criollo",
     slug: "el-sabor-criollo",
-    categoria: "restaurantes",
+    categoria: "comida-rapida",
     descripcion: "Auténtica comida criolla con los mejores ingredientes de la región.",
     imagen: "/img/criollo.jpg",
     calificacion: 4.8,

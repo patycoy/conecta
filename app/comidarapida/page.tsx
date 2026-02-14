@@ -1,10 +1,33 @@
-import React from 'react';
-import { negocios } from '@/data/negocios';
+"use client"
+import React, { useState, useEffect } from 'react';
 import CardComidaRapida from '@/components/CardComidaRapida';
 import { Negocio } from '@/data/types';
+import LoadingSpinner from '@/components/LoadingSpinner';
 
 const Page = () => {
-  const comidaRapida = negocios.filter((negocio: Negocio) => negocio.categoria === 'comida-rapida');
+  const [comidaRapida, setComidaRapida] = useState<Negocio[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchNegocios = async () => {
+      try {
+        const res = await fetch('/api/negocios');
+        const data = await res.json();
+        const comidaRapidaFiltrada = data.filter((negocio: Negocio) => negocio.categoria === 'comida-rapida');
+        setComidaRapida(comidaRapidaFiltrada);
+      } catch (error) {
+        console.error("Error fetching negocios:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchNegocios();
+  }, []);
+
+  if (loading) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <main className="min-h-screen p-8 bg-gray-50">
