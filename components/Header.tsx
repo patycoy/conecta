@@ -36,6 +36,7 @@ export default function Header(): JSX.Element {
             ["Restaurantes", "/restaurantes"],
             ["Entretenimiento", "/entretenimiento"],
             ["Servicios", "/servicios"],
+            ["Salud", "/salud"],
             ["Mantenimiento", "/mantenimiento"],
           ].map(([label, href]) => (
             <a
@@ -108,8 +109,11 @@ export default function Header(): JSX.Element {
             <a href="/entretenimiento" className="hover:text-indigo-600">
               Entretenimiento
             </a>
-            <a href="/servicios" className="hover:text-indigo-600">
+            <a href="/salud" className="hover:text-indigo-600">
               Servicios
+            </a>
+            <a href="/servicios" className="hover:text-indigo-600">
+              Salud
             </a>
             <a href="/mantenimiento" className="hover:text-indigo-600">
               Mantenimiento

@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 
 interface LoadingSpinnerProps {
-  onComplete: () => void
+  onComplete?: () => void
 }
 
 export default function LoadingSpinner({ onComplete }: LoadingSpinnerProps) {
@@ -14,7 +14,9 @@ export default function LoadingSpinner({ onComplete }: LoadingSpinnerProps) {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval)
-          setTimeout(onComplete, 400)
+          if (onComplete) {
+            setTimeout(onComplete, 400)
+          }
           return 100
         }
         return prev + 1

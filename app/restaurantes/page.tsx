@@ -1,12 +1,12 @@
-"use client"
+'use client';
 import React, { useState, useEffect } from 'react';
 import CardRestaurantes from '@/components/CardRestaurantes';
 import { Negocio } from '@/data/types';
-import LoadingSpinner from '@/components/LoadingSpinner';
+import { useAppContext } from '@/context/AppContext';
 
 const Page = () => {
   const [restaurantes, setRestaurantes] = useState<Negocio[]>([]);
-  const [loading, setLoading] = useState(true);
+  const { isInitialLoading } = useAppContext();
 
   useEffect(() => {
     const fetchNegocios = async () => {
@@ -17,16 +17,14 @@ const Page = () => {
         setRestaurantes(restaurantesFiltrados);
       } catch (error) {
         console.error("Error fetching negocios:", error);
-      } finally {
-        setLoading(false);
       }
     };
 
     fetchNegocios();
   }, []);
 
-  if (loading) {
-    return <LoadingSpinner />;
+  if (isInitialLoading) {
+    return null;
   }
 
   return (

@@ -1,18 +1,15 @@
 'use client';
 
-import { useState } from 'react';
+import { useAppContext } from '@/context/AppContext';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import Home from '@/components/Home';
 
-
 export default function Page() {
-  const [isLoading, setIsLoading] = useState(true);
+  const { isInitialLoading, finishInitialLoad } = useAppContext();
 
-  return isLoading ? (
-    <LoadingSpinner onComplete={() => setIsLoading(false)} />
+  return isInitialLoading ? (
+    <LoadingSpinner onComplete={finishInitialLoad} />
   ) : (
-    
-      <Home />
-    
+    <Home />
   );
 }
